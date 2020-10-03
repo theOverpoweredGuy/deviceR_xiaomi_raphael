@@ -14,9 +14,9 @@ VENDOR=xiaomi
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-DERP_ROOT="${MY_DIR}"/../../..
+STREAK_ROOT="${MY_DIR}"/../../..
 
-HELPER="${DERP_ROOT}/vendor/derp/build/tools/extract_utils.sh"
+HELPER="${STREAK_ROOT}/vendor/streak/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
@@ -50,7 +50,7 @@ if [ -z "${SRC}" ]; then
 fi
 
 # Initialize the helper
-setup_vendor "${DEVICE}" "${VENDOR}" "${DERP_ROOT}" true "${CLEAN_VENDOR}"
+setup_vendor "${DEVICE}" "${VENDOR}" "${STREAK_ROOT}" true "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"
